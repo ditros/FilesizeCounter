@@ -49,6 +49,7 @@ namespace FilesizeCounter
             openFileDialog.RestoreDirectory = true;
             progressBarFileCount.Value = 0;
             progressBarFileCount.Maximum = 1;
+
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 var fileName = openFileDialog.FileName;
@@ -87,10 +88,12 @@ namespace FilesizeCounter
         private void FileFormatChange()
         {
             var fileFormat = comboBoxFileFormat.SelectedItem.ToString();
+
             if (fileFormat == "All files")
             {
                 fileFormat = "*";
             }
+
             try
             {
                 var fileNames = Directory.GetFiles(_selectedPath, "*." + fileFormat, SearchOption.AllDirectories);
