@@ -23,6 +23,11 @@ namespace FilesizeCounter
             {
                 var fileSize = 0.0f;
 
+                if (checkedButton.Equals(radioButtonB))
+                {
+                    fileSize = _fileSize;
+                }
+
                 if (checkedButton.Equals(radioButtonKB))
                 {
                     fileSize = _fileSize / 1024f;
