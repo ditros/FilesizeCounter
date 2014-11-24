@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace FilesizeCounter
@@ -16,27 +17,28 @@ namespace FilesizeCounter
 
         private void RecalculateFileSize()
         {
-            if (radioButtonB.Checked)
+            var checkedButton = Controls.OfType<RadioButton>()
+                                      .FirstOrDefault(r => r.Checked);
+            if(checkedButton != null)
             {
-                labelFileSize.Text = _fileSize.ToString() + " Bytes";
-            }
+                var fileSize = 0.0f;
 
-            if (radioButtonKB.Checked)
-            {
-                var fileSize = _fileSize / 1024f;
-                labelFileSize.Text = fileSize.ToString() + " KBytes";
-            }
+                if (checkedButton.Equals(radioButtonKB))
+                {
+                    fileSize = _fileSize / 1024f;
+                }
 
-            if (radioButtonMB.Checked)
-            {
-                var fileSize = _fileSize / 1024f / 1024f;
-                labelFileSize.Text = fileSize.ToString() + " MBytes";
-            }
+                if (checkedButton.Equals(radioButtonMB))
+                {
+                    fileSize = _fileSize / 1024f / 1024f;
+                }
 
-            if (radioButtonGB.Checked)
-            {
-                var fileSize = _fileSize / 1024f / 1024f / 1024f;
-                labelFileSize.Text = fileSize.ToString() + " GBytes";
+                if (checkedButton.Equals(radioButtonGB))
+                {
+                    fileSize = _fileSize / 1024f / 1024f / 1024f;
+                }
+
+                labelFileSize.Text = fileSize.ToString() + " " + checkedButton.Text;
             }
         }
 
