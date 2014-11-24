@@ -41,17 +41,16 @@ namespace FilesizeCounter
 
         private void buttonSelect_Click(object sender, EventArgs e)
         {
-            var openFileDialog = new OpenFileDialog();
-
+            openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = "c:\\";
-            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*|Images (*.jpg)|*.jpg";
             openFileDialog.FilterIndex = 2;
             openFileDialog.RestoreDirectory = true;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                var filename = openFileDialog.FileName;
-                var fileInfo = new FileInfo(filename);
+                var fileName = openFileDialog.FileName;
+                var fileInfo = new FileInfo(fileName);
                 _fileSize = fileInfo.Length;
 
                 RecalculateFileSize();
@@ -62,6 +61,27 @@ namespace FilesizeCounter
         {
             if(!String.IsNullOrEmpty(labelFileSize.Text))
             {
+                RecalculateFileSize();
+            }
+        }
+
+        private void buttonSelectDirectory_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog = new FolderBrowserDialog();
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                var selectedPath = folderBrowserDialog.SelectedPath;
+                var fileNames = Directory.GetFiles(selectedPath, "*.jpg", SearchOption.AllDirectories);
+
+                _fileSize = 0.0f;
+
+                foreach (var fileName in fileNames)
+                {
+                    var fileInfo = new FileInfo(fileName);
+                    _fileSize += fileInfo.Length;
+                }
+
                 RecalculateFileSize();
             }
         }

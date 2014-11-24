@@ -36,11 +36,14 @@
             this.radioButtonMB = new System.Windows.Forms.RadioButton();
             this.radioButtonKB = new System.Windows.Forms.RadioButton();
             this.radioButtonB = new System.Windows.Forms.RadioButton();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.buttonSelectDirectory = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog";
+            this.openFileDialog.InitialDirectory = "C:\\\\";
             // 
             // buttonSelect
             // 
@@ -48,7 +51,7 @@
             this.buttonSelect.Name = "buttonSelect";
             this.buttonSelect.Size = new System.Drawing.Size(112, 22);
             this.buttonSelect.TabIndex = 0;
-            this.buttonSelect.Text = "Select File/Directory";
+            this.buttonSelect.Text = "Select File";
             this.buttonSelect.UseVisualStyleBackColor = true;
             this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
             // 
@@ -106,11 +109,26 @@
             this.radioButtonB.UseVisualStyleBackColor = true;
             this.radioButtonB.CheckedChanged += new System.EventHandler(this.radioButtonGB_CheckedChanged);
             // 
+            // folderBrowserDialog
+            // 
+            this.folderBrowserDialog.SelectedPath = "C:\\";
+            // 
+            // buttonSelectDirectory
+            // 
+            this.buttonSelectDirectory.Location = new System.Drawing.Point(12, 103);
+            this.buttonSelectDirectory.Name = "buttonSelectDirectory";
+            this.buttonSelectDirectory.Size = new System.Drawing.Size(112, 22);
+            this.buttonSelectDirectory.TabIndex = 5;
+            this.buttonSelectDirectory.Text = "Select Directory";
+            this.buttonSelectDirectory.UseVisualStyleBackColor = true;
+            this.buttonSelectDirectory.Click += new System.EventHandler(this.buttonSelectDirectory_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(281, 84);
+            this.ClientSize = new System.Drawing.Size(281, 137);
+            this.Controls.Add(this.buttonSelectDirectory);
             this.Controls.Add(this.radioButtonB);
             this.Controls.Add(this.radioButtonKB);
             this.Controls.Add(this.radioButtonMB);
@@ -135,6 +153,8 @@
         private System.Windows.Forms.RadioButton radioButtonMB;
         private System.Windows.Forms.RadioButton radioButtonKB;
         private System.Windows.Forms.RadioButton radioButtonB;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.Button buttonSelectDirectory;
     }
 }
 
