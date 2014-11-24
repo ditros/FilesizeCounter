@@ -38,6 +38,8 @@
             this.radioButtonB = new System.Windows.Forms.RadioButton();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.buttonSelectDirectory = new System.Windows.Forms.Button();
+            this.comboBoxFileFormat = new System.Windows.Forms.ComboBox();
+            this.progressBarFileCount = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -123,11 +125,38 @@
             this.buttonSelectDirectory.UseVisualStyleBackColor = true;
             this.buttonSelectDirectory.Click += new System.EventHandler(this.buttonSelectDirectory_Click);
             // 
+            // comboBoxFileFormat
+            // 
+            this.comboBoxFileFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFileFormat.FormattingEnabled = true;
+            this.comboBoxFileFormat.Items.AddRange(new object[] {
+            "All files",
+            "jpg",
+            "doc",
+            "txt",
+            "exe",
+            "rar"});
+            this.comboBoxFileFormat.Location = new System.Drawing.Point(138, 103);
+            this.comboBoxFileFormat.Name = "comboBoxFileFormat";
+            this.comboBoxFileFormat.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFileFormat.TabIndex = 6;
+            this.comboBoxFileFormat.SelectedIndexChanged += new System.EventHandler(this.comboBoxFileFormat_SelectedIndexChanged);
+            // 
+            // progressBarFileCount
+            // 
+            this.progressBarFileCount.Location = new System.Drawing.Point(13, 135);
+            this.progressBarFileCount.Name = "progressBarFileCount";
+            this.progressBarFileCount.Size = new System.Drawing.Size(246, 23);
+            this.progressBarFileCount.Step = 1;
+            this.progressBarFileCount.TabIndex = 7;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(281, 137);
+            this.ClientSize = new System.Drawing.Size(271, 170);
+            this.Controls.Add(this.progressBarFileCount);
+            this.Controls.Add(this.comboBoxFileFormat);
             this.Controls.Add(this.buttonSelectDirectory);
             this.Controls.Add(this.radioButtonB);
             this.Controls.Add(this.radioButtonKB);
@@ -139,6 +168,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "FilesizeCounter";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,6 +185,8 @@
         private System.Windows.Forms.RadioButton radioButtonB;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.Button buttonSelectDirectory;
+        private System.Windows.Forms.ComboBox comboBoxFileFormat;
+        private System.Windows.Forms.ProgressBar progressBarFileCount;
     }
 }
 
