@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.buttonSelect = new System.Windows.Forms.Button();
+            this.buttonSelectFile = new System.Windows.Forms.Button();
             this.labelFileSize = new System.Windows.Forms.Label();
             this.radioButtonGB = new System.Windows.Forms.RadioButton();
             this.radioButtonMB = new System.Windows.Forms.RadioButton();
@@ -47,15 +47,15 @@
             this.openFileDialog.FileName = "openFileDialog";
             this.openFileDialog.InitialDirectory = "C:\\\\";
             // 
-            // buttonSelect
+            // buttonSelectFile
             // 
-            this.buttonSelect.Location = new System.Drawing.Point(12, 16);
-            this.buttonSelect.Name = "buttonSelect";
-            this.buttonSelect.Size = new System.Drawing.Size(112, 22);
-            this.buttonSelect.TabIndex = 0;
-            this.buttonSelect.Text = "Select File";
-            this.buttonSelect.UseVisualStyleBackColor = true;
-            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
+            this.buttonSelectFile.Location = new System.Drawing.Point(12, 16);
+            this.buttonSelectFile.Name = "buttonSelectFile";
+            this.buttonSelectFile.Size = new System.Drawing.Size(112, 22);
+            this.buttonSelectFile.TabIndex = 0;
+            this.buttonSelectFile.Text = "Select File";
+            this.buttonSelectFile.UseVisualStyleBackColor = true;
+            this.buttonSelectFile.Click += new System.EventHandler(this.buttonSelectFile_Click);
             // 
             // labelFileSize
             // 
@@ -163,7 +163,7 @@
             this.Controls.Add(this.radioButtonMB);
             this.Controls.Add(this.radioButtonGB);
             this.Controls.Add(this.labelFileSize);
-            this.Controls.Add(this.buttonSelect);
+            this.Controls.Add(this.buttonSelectFile);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -177,7 +177,7 @@
         #endregion
 
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.Button buttonSelect;
+        private System.Windows.Forms.Button buttonSelectFile;
         private System.Windows.Forms.Label labelFileSize;
         private System.Windows.Forms.RadioButton radioButtonGB;
         private System.Windows.Forms.RadioButton radioButtonMB;

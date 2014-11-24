@@ -47,7 +47,7 @@ namespace FilesizeCounter
             }
         }
 
-        private void buttonSelect_Click(object sender, EventArgs e)
+        private void buttonSelectFile_Click(object sender, EventArgs e)
         {
             openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = "c:\\";
